@@ -108,15 +108,29 @@ if (shareButton) {
   });
 }
 
-// === [4] Panggil ready() (jika tersedia) ===
-console.log("Mini App konten telah siap.");
-if (window.FarcasterMiniApps && typeof window.FarcasterMiniApps.ready === "function") {
-  window.FarcasterMiniApps.ready();
-} else {
-  console.warn("FarcasterMiniApps.ready belum tersedia.");
-}
+// === [4] Panggil ready() dari SDK ketika UI sudah siap ===
+// Karena dokumentasinya menyatakan kita harus memanggil ready() sesaat setelah antarmuka Mini App siap,
+// kita bungkus pemanggilan ini dalam async IIFE. Juga, kita gunakan disableNativeGestures sesuai contoh dokumentasi.
 
-// === [5] Fallback: Sembunyikan Splash Screen Setelah 3 Detik ===
+(async function callReadyWhenReady() {
+  // Menunggu agar UI telah termuat tanpa jitter atau reflow.
+  // Pastikan pelacakan UI di sini sudah menyatakan bahwa antarmuka Mini App siap.
+  console.log("Mini App konten telah siap.");
+  if (window.FarcasterMiniApps && window.FarcasterMiniApps.actions && typeof window.FarcasterMiniApps.actions.ready === "function") {
+    try {
+      await window.FarcasterMiniApps.actions.ready({ disableNativeGestures: true });
+      console.log("SDK ready() telah dipanggil.");
+    } catch (error) {
+      console.error("Error saat memanggil ready():", error);
+    }
+  } else {
+    console.warn("FarcasterMiniApps.actions.ready belum tersedia. Menggunakan fallback untuk menyembunyikan splash screen.");
+    // Fallback: Sembunyikan splash screen setelah 3 detik.
+    setTimeout(hideSplashScreen, 3000);
+  }
+})();
+
+// === [5] Fallback: Sembunyikan Splash Screen Jika ready() Tidak Terpanggil ===
 function hideSplashScreen() {
   const loading = document.getElementById("fc-loading");
   if (loading && loading.style.display !== "none") {
@@ -125,12 +139,11 @@ function hideSplashScreen() {
   }
 }
 
-// Bila document sudah ready, langsung atur fallback:
+// Pastikan fallback juga dijalankan apabila DOM sudah lengkap.
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", function() {
     setTimeout(hideSplashScreen, 3000);
   });
 } else {
-  // Jika sudah complete, jalankan fallback langsung
   setTimeout(hideSplashScreen, 3000);
 }
