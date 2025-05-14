@@ -32,12 +32,18 @@ body {
   color: white;
 }
 
-#next {
-  display: none;
+#next, #share {
+  display: block;
+  margin: 20px auto;
   padding: 10px;
   background: #8000ff;
   color: white;
   border: none;
-  cursor: pointer;
   border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#next:hover, #share:hover {
+  background: #ff007f;
 }
