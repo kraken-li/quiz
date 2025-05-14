@@ -5,10 +5,10 @@
   <title>General Knowledge Quiz MiniApp</title>
   <link rel="stylesheet" href="/style.css">
   
-  <!-- Jika tidak ingin favicon, gunakan favicon dummy -->
+  <!-- Favicon dummy untuk menghindari error 404 -->
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
-  <!-- Konfigurasi MiniApps (tanpa icon) -->
+  <!-- Konfigurasi MiniApps (tanpa field icon) -->
   <script id="fc-miniapps-config" type="application/json">
   {
     "appName": "General Knowledge Quiz MiniApp",
@@ -28,6 +28,8 @@
     <p id="timer">⏳ Time Left: <span id="time">10</span> sec</p>
     <button id="next">Next Question</button>
     <p id="score">Score: 0</p>
+    <!-- Tombol Share -->
+    <button id="share">Share This MiniApp</button>
   </div>
   
   <!-- Muat logika quiz dari app.js -->
