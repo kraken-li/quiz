@@ -2,9 +2,6 @@
   "version": 2,
   "cleanUrls": true,
   "rewrites": [
-    {
-      "source": "/((?!src/|public/|\\.well-known/).*)",
-      "destination": "/index.html"
-    }
+    { "source": "/**", "destination": "/index.html" }
   ]
 }
