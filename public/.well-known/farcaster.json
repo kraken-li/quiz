@@ -7,7 +7,6 @@
     "website": "https://yourwebsite.example"
   },
   "display": {
-    "logo": "https://quizzz-gules.vercel.app/icon.png",
     "color": "#8000ff"
   },
   "capabilities": [
