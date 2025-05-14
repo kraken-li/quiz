@@ -2,26 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>General Knowledge Quiz MiniApp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/style.css">
-  
-  <!-- Favicon dummy untuk menghindari error 404 -->
+  <!-- Favicon dummy agar tidak error -->
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
-  <!-- Konfigurasi MiniApps (tanpa field icon) -->
+  <!-- Konfigurasi MiniApps -->
   <script id="fc-miniapps-config" type="application/json">
   {
     "appName": "General Knowledge Quiz MiniApp",
-    "appDescription": "An interactive quiz to test your general knowledge on Farcaster!",
+    "appDescription": "An interactive quiz miniapp to test your general knowledge on Farcaster!",
     "appUrl": "https://quizzz-gules.vercel.app",
     "version": "1.0.0"
   }
   </script>
-  <!-- Muat SDK MiniApps Farcaster -->
+  <!-- Muat SDK Farcaster MiniApps -->
   <script src="https://miniapps.farcaster.xyz/sdk/farcaster-miniapps.js"></script>
 </head>
 <body>
+
+  <!-- Splash Screen / Loading Element -->
+  <div id="fc-loading" style="position:fixed; top:0; left:0; right:0; bottom:0; background:#8000ff; display:flex; align-items:center; justify-content:center; z-index:9999;">
+    <h1 style="color: white; font-family: sans-serif;">Loading Quiz...</h1>
+  </div>
+
+  <!-- Konten MiniApp -->
   <div class="quiz-container">
     <h1>🔥 Can You Beat This Quiz? 🔥</h1>
     <p id="question">Loading question...</p>
