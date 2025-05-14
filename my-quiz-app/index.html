@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>General Knowledge Quiz MiniApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bisa ditambahkan favicon atau meta tag lain sesuai kebutuhan -->
+  </head>
+  <body>
+    <!-- Splash Screen -->
+    <div id="fc-loading" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #8000ff; display: flex; align-items: center; justify-content: center; z-index: 9999;">
+      <h1 style="color: white;">Loading Quiz...</h1>
+    </div>
+
+    <!-- Konten Quiz -->
+    <div class="quiz-container" style="display: none;">
+      <h1>General Knowledge Quiz</h1>
+      <!-- Elemen untuk pertanyaan -->
+      <p id="question">Question will appear here...</p>
+      <!-- Elemen untuk menampilkan opsi jawaban -->
+      <div id="options"></div>
+      
+      <!-- Informasi Timer dan Score -->
+      <div id="info">
+        <p id="timer">Time: <span id="time">10</span> sec</p>
+        <p id="score">Score: 0</p>
+      </div>
+      
+      <!-- Tombol Next untuk pertanyaan berikutnya -->
+      <button id="next">Next Question</button>
+      
+      <!-- Tombol Share, secara default disembunyikan -->
+      <button id="share" style="display: none;">Share This MiniApp</button>
+    </div>
+
+    <!-- Vite akan menyisipkan bundle script melalui file main.js -->
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

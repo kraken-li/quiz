@@ -1,0 +1,111 @@
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Styling body */
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  padding: 20px;
+}
+
+/* Splash Screen */
+#fc-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #8000ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Styling untuk konten quiz */
+.quiz-container {
+  margin: 50px auto;
+  padding: 20px;
+  max-width: 600px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Judul Quiz */
+.quiz-container h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Pertanyaan Quiz */
+#question {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Opsi Jawaban */
+#options button {
+  width: 100%;
+  padding: 10px;
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background: #eee;
+  border: none;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+#options button:hover {
+  background: #ddd;
+}
+
+/* Informasi Timer dan Score */
+#info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+/* Tombol Next */
+#next {
+  display: block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  margin: 20px auto;
+  cursor: pointer;
+  border: none;
+  background: #8000ff;
+  color: #fff;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+#next:hover {
+  background: #6900cc;
+}
+
+/* Tombol Share */
+#share {
+  display: block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  margin: 20px auto;
+  cursor: pointer;
+  border: none;
+  background: #28a745;
+  color: #fff;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+#share:hover {
+  background: #218838;
+}
