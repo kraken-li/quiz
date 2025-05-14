@@ -44,9 +44,11 @@ function startTimer() {
 function loadQuestion() {
   clearInterval(timer);
   startTimer();
+  
   const q = questions[currentQuestionIndex];
   questionElement.innerText = q.question;
   optionsElement.innerHTML = "";
+  
   q.options.forEach(function(option) {
     var button = document.createElement("button");
     button.innerText = option;
@@ -55,6 +57,7 @@ function loadQuestion() {
     };
     optionsElement.appendChild(button);
   });
+  
   nextButton.style.display = "none";
 }
 
@@ -78,7 +81,10 @@ function nextQuestion() {
   loadQuestion();
 }
 
+// Event untuk tombol next
 nextButton.onclick = nextQuestion;
+
+// Mulai load pertanyaan pertama
 loadQuestion();
 
 // Fitur share sesuai dengan panduan MiniApps
@@ -103,25 +109,14 @@ if (shareButton) {
   });
 }
 
-// Inisialisasi SDK dan sembunyikan splash screen saat MiniApp sudah siap
-if (window.FarcasterMiniApps && typeof window.FarcasterMiniApps.init === "function") {
-  window.FarcasterMiniApps.init({
-    onLoaded: function() {
-      console.log("MiniApp loaded successfully");
-      var loading = document.getElementById("fc-loading");
-      if (loading) {
-        loading.style.display = "none";
-      }
-    }
-  });
+/*
+  Panggil ready() dari SDK Farcaster MiniApps setelah semua konten Mini App sudah siap.
+  Hal ini sangat penting agar ketika Mini App dijalankan secara standalone ataupun di embed (misalnya di Warpcast),
+  platform mendapatkan sinyal bahwa konten sudah siap ditampilkan.
+*/
+console.log("Mini App konten telah siap.");
+if (window.FarcasterMiniApps && typeof window.FarcasterMiniApps.ready === "function") {
+  window.FarcasterMiniApps.ready();
 } else {
-  // Jika SDK tidak mendukung callback onLoaded, gunakan fallback
-  document.addEventListener("DOMContentLoaded", function() {
-    setTimeout(function() {
-      var loading = document.getElementById("fc-loading");
-      if (loading) {
-        loading.style.display = "none";
-      }
-    }, 1000);
-  });
+  console.warn("FarcasterMiniApps.ready belum tersedia.");
 }
