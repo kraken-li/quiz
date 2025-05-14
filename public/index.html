@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>General Knowledge Quiz MiniApp</title>
+  <link rel="stylesheet" href="/style.css">
+  
+  <!-- Jika tidak ingin favicon, gunakan favicon dummy -->
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+  <!-- Konfigurasi MiniApps (tanpa icon) -->
+  <script id="fc-miniapps-config" type="application/json">
+  {
+    "appName": "General Knowledge Quiz MiniApp",
+    "appDescription": "An interactive quiz to test your general knowledge on Farcaster!",
+    "appUrl": "https://quizzz-gules.vercel.app",
+    "version": "1.0.0"
+  }
+  </script>
+  <!-- Muat SDK MiniApps Farcaster -->
+  <script src="https://miniapps.farcaster.xyz/sdk/farcaster-miniapps.js"></script>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>🔥 Can You Beat This Quiz? 🔥</h1>
+    <p id="question">Loading question...</p>
+    <div id="options"></div>
+    <p id="timer">⏳ Time Left: <span id="time">10</span> sec</p>
+    <button id="next">Next Question</button>
+    <p id="score">Score: 0</p>
+  </div>
+  
+  <!-- Muat logika quiz dari app.js -->
+  <script src="/app.js"></script>
+</body>
+</html>
