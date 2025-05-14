@@ -47,7 +47,8 @@ function loadQuestion() {
 
   const q = questions[currentQuestionIndex];
   questionElement.innerText = q.question;
-
+  
+  // Bersihkan opsi lama dan buat opsi baru
   optionsElement.innerHTML = "";
   q.options.forEach(option => {
     const button = document.createElement("button");
@@ -55,7 +56,7 @@ function loadQuestion() {
     button.onclick = () => checkAnswer(option, q.answer);
     optionsElement.appendChild(button);
   });
-
+  
   nextButton.style.display = "none";
 }
 
@@ -82,7 +83,7 @@ function nextQuestion() {
 nextButton.onclick = nextQuestion;
 loadQuestion();
 
-// Inisialisasi SDK Farcaster MiniApps sesuai Publishing guide
+// Inisialisasi SDK Farcaster MiniApps sesuai panduan Publishing
 if (window.FarcasterMiniApps && typeof window.FarcasterMiniApps.init === 'function') {
   window.FarcasterMiniApps.init();
 }
