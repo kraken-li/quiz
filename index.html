@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>General Knowledge Quiz MiniApp</title>
+  <link rel="stylesheet" href="/src/style.css">
+  
+  <!-- Konfigurasi MiniApps sesuai Getting Started & Publishing guides -->
+  <script id="fc-miniapps-config" type="application/json">
+  {
+    "appName": "General Knowledge Quiz MiniApp",
+    "appDescription": "An interactive quiz to test your general knowledge on Farcaster!",
+    "appUrl": "https://your-vercel-deployment-url.vercel.app",
+    "icon": "https://your-vercel-deployment-url.vercel.app/icon.png",
+    "version": "1.0.0"
+  }
+  </script>
+  <!-- Memuat SDK MiniApps Farcaster -->
+  <script src="https://miniapps.farcaster.xyz/sdk/farcaster-miniapps.js"></script>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>🔥 Can You Beat This Quiz? 🔥</h1>
+    <p id="question">Loading question...</p>
+    <div id="options"></div>
+    <p id="timer">⏳ Time Left: <span id="time">10</span> sec</p>
+    <button id="next">Next Question</button>
+    <p id="score">Score: 0</p>
+  </div>
+
+  <!-- Memuat logika quiz dari public/app.mjs -->
+  <script type="module" src="/public/app.mjs"></script>
+</body>
+</html>
