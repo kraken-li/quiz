@@ -4,11 +4,12 @@ body {
   color: white;
   text-align: center;
   padding: 20px;
+  margin: 0;
 }
 
 .quiz-container {
   max-width: 500px;
-  margin: auto;
+  margin: 80px auto 20px; /* jarak dari atas agar tidak tertutup splash */
   background: white;
   padding: 20px;
   border-radius: 15px;
