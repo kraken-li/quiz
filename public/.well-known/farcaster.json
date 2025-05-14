@@ -1,0 +1,19 @@
+{
+  "name": "General Knowledge Quiz MiniApp",
+  "description": "An interactive quiz miniapp to test your general knowledge on Farcaster.",
+  "version": "1.0.0",
+  "developer": {
+    "name": "Your Name or Organization",
+    "website": "https://yourwebsite.example"
+  },
+  "display": {
+    "logo": "https://quizzz-gules.vercel.app/icon.png",
+    "color": "#8000ff"
+  },
+  "capabilities": [
+    "miniapp",
+    "quiz",
+    "interactive"
+  ],
+  "homepage_url": "https://quizzz-gules.vercel.app"
+}
