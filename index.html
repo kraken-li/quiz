@@ -5,17 +5,17 @@
   <title>General Knowledge Quiz MiniApp</title>
   <link rel="stylesheet" href="/src/style.css">
   
-  <!-- Konfigurasi MiniApps sesuai Getting Started & Publishing guides -->
+  <!-- Konfigurasi MiniApps (sesuai Getting Started & Publishing guides) -->
   <script id="fc-miniapps-config" type="application/json">
   {
     "appName": "General Knowledge Quiz MiniApp",
     "appDescription": "An interactive quiz to test your general knowledge on Farcaster!",
-    "appUrl": "https://your-vercel-deployment-url.vercel.app",
-    "icon": "https://your-vercel-deployment-url.vercel.app/icon.png",
+    "appUrl": "https://quizzz-gules.vercel.app",
+    "icon": "https://quizzz-gules.vercel.app/icon.png",
     "version": "1.0.0"
   }
   </script>
-  <!-- Memuat SDK MiniApps Farcaster -->
+  <!-- Muat SDK MiniApps Farcaster -->
   <script src="https://miniapps.farcaster.xyz/sdk/farcaster-miniapps.js"></script>
 </head>
 <body>
@@ -28,7 +28,7 @@
     <p id="score">Score: 0</p>
   </div>
 
-  <!-- Memuat logika quiz dari public/app.mjs -->
+  <!-- Muat logika quiz dari public/app.mjs -->
   <script type="module" src="/public/app.mjs"></script>
 </body>
 </html>
