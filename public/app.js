@@ -31,7 +31,7 @@ let timer;
 function startTimer() {
   timeLeft = 10;
   timerElement.innerText = timeLeft;
-  timer = setInterval(() => {
+  timer = setInterval(function() {
     timeLeft--;
     timerElement.innerText = timeLeft;
     if (timeLeft <= 0) {
@@ -47,13 +47,15 @@ function loadQuestion() {
 
   const q = questions[currentQuestionIndex];
   questionElement.innerText = q.question;
-  
+
   // Bersihkan opsi lama dan buat opsi baru
   optionsElement.innerHTML = "";
-  q.options.forEach(option => {
-    const button = document.createElement("button");
+  q.options.forEach(function(option) {
+    var button = document.createElement("button");
     button.innerText = option;
-    button.onclick = () => checkAnswer(option, q.answer);
+    button.onclick = function() {
+      checkAnswer(option, q.answer);
+    };
     optionsElement.appendChild(button);
   });
   
@@ -64,7 +66,7 @@ function checkAnswer(selected, correct) {
   clearInterval(timer);
   if (selected === correct) {
     score++;
-    scoreElement.innerText = `Score: ${score}`;
+    scoreElement.innerText = "Score: " + score;
   }
   nextButton.style.display = "block";
 }
@@ -72,7 +74,7 @@ function checkAnswer(selected, correct) {
 function nextQuestion() {
   currentQuestionIndex++;
   if (currentQuestionIndex >= questions.length) {
-    questionElement.innerText = `Quiz Over! Your Final Score: ${score}`;
+    questionElement.innerText = "Quiz Over! Your Final Score: " + score;
     optionsElement.innerHTML = "";
     nextButton.style.display = "none";
     return;
@@ -83,7 +85,29 @@ function nextQuestion() {
 nextButton.onclick = nextQuestion;
 loadQuestion();
 
-// Inisialisasi SDK Farcaster MiniApps sesuai panduan Publishing
-if (window.FarcasterMiniApps && typeof window.FarcasterMiniApps.init === 'function') {
+// Penambahan fungsi sharing sesuai panduan Farcaster MiniApps
+var shareButton = document.getElementById("share");
+if (shareButton) {
+  shareButton.addEventListener("click", function () {
+    if (window.FarcasterMiniApps && typeof window.FarcasterMiniApps.share === "function") {
+      window.FarcasterMiniApps.share({
+        title: "General Knowledge Quiz MiniApp",
+        text: "Check out this interactive quiz on Farcaster!",
+        url: "https://quizzz-gules.vercel.app"
+      })
+      .then(function () {
+        console.log("Shared successfully");
+      })
+      .catch(function (error) {
+        console.error("Sharing failed:", error);
+      });
+    } else {
+      alert("Sharing is not supported on this platform.");
+    }
+  });
+}
+
+// Inisialisasi SDK Farcaster MiniApps sesuai panduan publishing
+if (window.FarcasterMiniApps && typeof window.FarcasterMiniApps.init === "function") {
   window.FarcasterMiniApps.init();
 }
