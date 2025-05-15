@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
       window.FarcasterMiniApps.share({
         title: "General Knowledge Quiz MiniApp",
         text: "Check out this interactive quiz on Farcaster!",
-        url: "https://quizzz-gules.vercel.app"
+        url: "https://quizz-cyan-two.vercel.app"
       })
         .then(() => console.log("Shared successfully"))
         .catch(error => console.error("Sharing failed:", error));
