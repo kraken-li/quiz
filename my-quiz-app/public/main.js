@@ -2,10 +2,8 @@
 import './style.css';
 
 // Import Farcaster SDK from npm
-(async () => {
-  const module = await import('@farcaster/frame-sdk');
-  window.FarcasterMiniApps = module.sdk;
-})();
+import { sdk } from '@farcaster/frame-sdk';
+window.FarcasterMiniApps = sdk;
 
 
 // Import quiz logic from app.js
