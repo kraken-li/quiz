@@ -1,18 +1,10 @@
 {
-  "appName": "General Knowledge Quiz MiniApp",
-  "appDescription": "An interactive quiz miniapp to test your general knowledge on Farcaster.",
-  "appUrl": "https://quizzz-gules.vercel.app",
-  "version": "1.0.0",
-  "icons": [
-    {
-      "src": "https://quizzz-gules.vercel.app/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "https://quizzz-gules.vercel.app/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+  "version": "1",
+  "name": "Quiz App",
+  "homeUrl": "https://quizz-cyan-two.vercel.app",
+  "splashBackgroundColor": "#ffffff",
+  "subtitle": "Test your knowledge!",
+  "description": "A fun quiz app for Warpcast users.",
+  "primaryCategory": "games",
+  "tags": ["quiz", "games", "fun"]
 }
