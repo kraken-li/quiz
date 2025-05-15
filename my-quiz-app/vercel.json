@@ -3,7 +3,15 @@
   "redirects": [{ "source": "/(.*)", "destination": "/index.html" }],
   "headers": [
     {
-      "source": "/assets/*.js",
+      "source": "/main.js",
+      "headers": [{ "key": "Content-Type", "value": "application/javascript" }]
+    },
+    {
+      "source": "/app.js",
+      "headers": [{ "key": "Content-Type", "value": "application/javascript" }]
+    },
+    {
+      "source": "/counter.js",
       "headers": [{ "key": "Content-Type", "value": "application/javascript" }]
     }
   ]
