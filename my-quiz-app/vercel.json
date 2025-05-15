@@ -3,7 +3,7 @@
   "redirects": [{ "source": "/(.*)", "destination": "/index.html" }],
   "headers": [
     {
-      "source": "**/*.js",
+      "source": "/assets/*.js",
       "headers": [{ "key": "Content-Type", "value": "application/javascript" }]
     }
   ]
